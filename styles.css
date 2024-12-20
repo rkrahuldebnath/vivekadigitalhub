@@ -1,0 +1,178 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+header img {
+    max-height: 80px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #555;
+}
+
+nav a {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    flex: 1 0 50%; /* Adjust navigation for smaller screens */
+    box-sizing: border-box;
+}
+
+nav a:hover {
+    background-color: #444;
+}
+
+section {
+    padding: 20px;
+}
+
+.catalog, .gallery, .review-section {
+    margin: 20px 0;
+}
+
+.catalog-item, .review {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: white;
+}
+
+.catalog-buttons button {
+    margin: 5px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.catalog-buttons button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.pay-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    display: block;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.pay-button:hover {
+    background-color: #218838;
+}
+
+.proprietor {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.proprietor img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    header {
+        font-size: 16px;
+    }
+
+    nav a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .catalog-item, .review {
+        font-size: 14px;
+    }
+
+    .catalog-buttons button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .proprietor img {
+        width: 100px;
+        height: 100px;
+    }
+
+    section {
+        padding: 15px;
+    }
+
+    .pay-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav a {
+        flex: 1 0 100%; /* Make navigation links stack on small screens */
+    }
+
+    header img {
+        max-height: 60px;
+    }
+
+    .catalog-item, .review {
+        font-size: 12px;
+    }
+
+    .catalog-buttons button {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .pay-button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
