@@ -1,36 +1,50 @@
-// EmailJS configuration
-(function () {
-    emailjs.init("vOV9Vm0x_"); // Your EmailJS Public Key
-})();
+document.addEventListener("DOMContentLoaded", () => {
+    const homeSection = document.getElementById("home");
+    const serviceSection = document.getElementById("service");
+    const gallerySection = document.getElementById("gallery");
+    const reviewSection = document.getElementById("review");
+    const galleryContainer = document.getElementById("gallery-container");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
 
-// Function to handle form submission
-document.getElementById("reviewForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    // Get form values
-    const name = document.getElementById("name").value;
-    const comment = document.getElementById("comment").value;
-
-    // Display review on the page
-    const reviewList = document.getElementById("review-list");
-    const newReview = document.createElement("div");
-    newReview.classList.add("review");
-    newReview.innerHTML = `<h3>${name}</h3><p>${comment}</p>`;
-    reviewList.appendChild(newReview);
-
-    // Send email using EmailJS
-    emailjs.send("service_gggv0zm", "YOUR_TEMPLATE_ID", {
-        name: name,
-        comment: comment,
-        email: "wheelchairrk@gmail.com", // Your email
-    })
-    .then(function (response) {
-        alert("Your review has been sent successfully!");
-        document.getElementById("reviewForm").reset(); // Clear the form
-    })
-    .catch(function (error) {
-        console.error("Error:", error);
-        alert("Failed to send your review. Please try again.");
+    // Toggle mobile menu
+    menuToggle.addEventListener("click", () => {
+        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
     });
-});
 
+    // Navigation buttons
+    document.getElementById("homeBtn").addEventListener("click", () => {
+        hideAllSections();
+        homeSection.style.display = "block";
+    });
+
+    document.getElementById("serviceBtn").addEventListener("click", () => {
+        hideAllSections();
+        serviceSection.style.display = "block";
+    });
+
+    document.getElementById("galleryBtn").addEventListener("click", () => {
+        hideAllSections();
+        gallerySection.style.display = "block";
+
+        // Fetch Google Drive images
+        const driveLink = "https://drive.google.com/drive/folders/14OWJPHRQLi48L8B_cpqdRCZ3_4N-1H-b";
+        galleryContainer.innerHTML = `<iframe src="${driveLink}" frameborder="0" width="100%" height="600px"></iframe>`;
+    });
+
+    document.getElementById("reviewBtn").addEventListener("click", () => {
+        hideAllSections();
+        reviewSection.style.display = "block";
+    });
+
+    function hideAllSections() {
+        homeSection.style.display = "none";
+        serviceSection.style.display = "none";
+        gallerySection.style.display = "none";
+        reviewSection.style.display = "none";
+    }
+
+    // Show home section by default
+    hideAllSections();
+    homeSection.style.display = "block";
+});
