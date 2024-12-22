@@ -43,8 +43,38 @@ document.addEventListener("DOMContentLoaded", () => {
         gallerySection.style.display = "none";
         reviewSection.style.display = "none";
     }
+    
+    // Load external content dynamically
+document.getElementById('formsBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    loadExternalContent('download-button.html');
+});
 
+function loadExternalContent(file) {
+    fetch(file)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('dynamic-content').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading external file:', error));
+}
+    
+    function payNow() {
+            const upiId = "9362719399@okbizaxis";
+            const amount = 100; // Specify the amount here
+
+            const upiLink = `upi://pay?pa=${upiId}&pn=Your%20Name&am=${amount}&cu=INR`;
+            window.location.href = upiLink;
+        }
+    
     // Show home section by default
     hideAllSections();
     homeSection.style.display = "block";
 });
+
+
